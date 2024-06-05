@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SadewaCompany87</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+        nav {
+            background: #1e1e1e;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px;
+        }
+        button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .results {
+            background: #e9ecef;
+            padding: 10px;
+            margin: 20px 0;
+        }
+        img.logo {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Modern Initial MB Logo_20240511_141209_0000.png" alt="SadewaCompany87 Logo" class="logo">
+    </header>
+    <nav>
+        <a href="#beranda">Beranda</a>
+        <a href="#tentang-kami">Tentang Kami</a>
+        <a href="#layanan">Layanan</a>
+    </nav>
+    <div class="container">
+        <div id="beranda" class="section">
+            <h1>SadewaCompany87</h1>
+            <p>Trading Forex dan Crypto Terpercaya</p>
+            <p>Selamat datang di SadewaCompany87! Kami adalah perusahaan trading yang mengedukasi dan memberikan fasilitas menarik seperti akun funded dan sistem pembelajaran inovatif. Kami siap membantu Anda menjadi trader profesional yang sukses.</p>
+        </div>
+
+        <div id="tentang-kami" class="section">
+            <h2>Tentang Kami</h2>
+            <p>SadewaCompany87 adalah perusahaan yang bergerak dalam bidang trading. Kami fokus pada edukasi dan menyediakan fasilitas menarik seperti akun funded dan sistem pembelajaran dengan guru-guru berpengalaman. Tujuan kami adalah menciptakan lulusan yang hebat dan mahir dalam trading forex dan crypto.</p>
+            <h3>Visi</h3>
+            <ul>
+                <li>Menciptakan lapangan kerja yang baru.</li>
+                <li>Membantu trader memiliki metode trading sendiri.</li>
+                <li>Mengembangkan portofolio trading yang jelas.</li>
+            </ul>
+            <h3>Misi</h3>
+            <ul>
+                <li>Mendidik mengenai kedisiplinan dalam trading.</li>
+                <li>Mendidik untuk mengatur emosi dalam trading.</li>
+                <li>Mengajarkan penggunaan stop loss dan take profit.</li>
+                <li>Mengamankan risk and reward ratio dalam trading.</li>
+            </ul>
+        </div>
+        <div id="layanan" class="section">
+          <h2>layanan</h2>
+            <h2>Kalkulator Risiko Forex</h2>
+            <form id="riskCalculatorForm">
+                <label for="transactionType">Jenis Transaksi:</label>
+                <select id="transactionType" name="transactionType">
+                    <option value="buy">Buy</option>
+                    <option value="sell">Sell</option>
+                </select>
+                
+                <label for="currencyPair">Pair Mata Uang:</label>
+                <input type="text" id="currencyPair" name="currencyPair" placeholder="USDJPY">
+
+                <label for="initialCapital">Modal Awal (USD):</label>
+                <input type="number" id="initialCapital" name="initialCapital">
+
+                <label for="entryPrice">Harga Entry:</label>
+                <input type="number" id="entryPrice" name="entryPrice">
+
+                <label for="stopLossPrice">Harga Stop Loss:</label>
+                <input type="number" id="stopLossPrice" name="stopLossPrice">
+
+                <label for="takeProfitPrice">Harga Take Profit:</label>
+                <input type="number" id="takeProfitPrice" name="takeProfitPrice">
+
+                <label for="riskPercentage">Persentase Risiko (%):</label>
+                <input type="number" id="riskPercentage" name="riskPercentage">
+
+                <button type="button" onclick="calculateRisk()">Hitung</button>
+            </form>
+            <div class="results" id="riskResults">
+                <p>Ukuran Lot yang Disarankan: <span id="lotSize">N/A</span></p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Backtest Metode</h2>
+            <form id="backtestForm">
+                <label for="backtestPair">Pair Forex atau Koin Crypto:</label>
+                <input type="text" id="backtestPair" name="backtestPair" placeholder="XAUUSD">
+
+                <label for="backtestEntryPrice">Harga Entry:</label>
+                <input type="number" id="backtestEntryPrice" name="backtestEntryPrice">
+
+                <label for="backtestStopLossPrice">Harga Stop Loss:</label>
+                <input type="number" id="backtestStopLossPrice" name="backtestStopLossPrice">
+
+                <label for="backtestTakeProfitPrice">Harga Take Profit:</label>
+                <input type="number" id="backtestTakeProfitPrice" name="backtestTake
+            <label for="backtestEntryDate">Tanggal Entry (YYYY-MM-DD):</label>
+            <input type="date" id="backtestEntryDate" name="backtestEntryDate">
+
+            <button type="button" onclick="performBacktest()">Backtest</button>
+        </form>
+        <div class="results" id="backtestResults">
+            <p>Pair: <span id="backtestPairResult">N/A</span></p>
+            <p>Harga Entry: <span id="backtestEntryPriceResult">N/A</span></p>
+            <p>Harga Stop Loss: <span id="backtestStopLossPriceResult">N/A</span></p>
+            <p>Harga Take Profit: <span id="backtestTakeProfitPriceResult">N/A</span></p>
+            <p>Tanggal Entry: <span id="backtestEntryDateResult">N/A</span></p>
+            <p>Risk/Reward Ratio: <span id="backtestRiskRewardRatio">N/A</span></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function calculateRisk() {
+        // Get form values
+        const transactionType = document.getElementById('transactionType').value;
+        const currencyPair = document.getElementById('currencyPair').value;
+        const initialCapital = parseFloat(document.getElementById('initialCapital').value);
+        const entryPrice = parseFloat(document.getElementById('entryPrice').value);
+        const stopLossPrice = parseFloat(document.getElementById('stopLossPrice').value);
+        const takeProfitPrice = parseFloat(document.getElementById('takeProfitPrice').value);
+        const riskPercentage = parseFloat(document.getElementById('riskPercentage').value);
+
+        // Risk calculation logic
+        const riskAmount = initialCapital * (riskPercentage / 100);
+        const stopLossDistance = Math.abs(entryPrice - stopLossPrice);
+        const lotSize = riskAmount / stopLossDistance;
+
+        // Display result
+        document.getElementById('lotSize').textContent = lotSize.toFixed(2);
+    }
+
+    function performBacktest() {
+        // Get form values
+        const pair = document.getElementById('backtestPair').value;
+        const entryPrice = parseFloat(document.getElementById('backtestEntryPrice').value);
+        const stopLossPrice = parseFloat(document.getElementById('backtestStopLossPrice').value);
+        const takeProfitPrice = parseFloat(document.getElementById('backtestTakeProfitPrice').value);
+        const entryDate = document.getElementById('backtestEntryDate').value;
+
+        // Risk/Reward ratio calculation
+        const risk = Math.abs(entryPrice - stopLossPrice);
+        const reward = Math.abs(takeProfitPrice - entryPrice);
+        const riskRewardRatio = reward / risk;
+
+        // Display results
+        document.getElementById('backtestPairResult').textContent = pair;
+        document.getElementById('backtestEntryPriceResult').textContent = entryPrice;
+        document.getElementById('backtestStopLossPriceResult').textContent = stopLossPrice;
+        document.getElementById('backtestTakeProfitPriceResult').textContent = takeProfitPrice;
+        document.getElementById('backtestEntryDateResult').textContent = entryDate;
+        document.getElementById('backtestRiskRewardRatio').textContent = riskRewardRatio.toFixed(2);
+    }
+</script>
+        
