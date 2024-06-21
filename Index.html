@@ -9,6 +9,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f4;
         }
 
         header {
@@ -63,16 +64,27 @@
         form {
             display: flex;
             flex-direction: column;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: auto;
+            margin-bottom: 20px;
         }
 
         form label {
             margin-bottom: 0.5rem;
+            font-weight: bold;
         }
 
         form input, form select, form button {
             margin-bottom: 1rem;
             padding: 0.5rem;
             font-size: 1rem;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
 
         form button {
@@ -84,6 +96,13 @@
 
         form button:hover {
             background-color: #0056b3;
+        }
+
+        .results {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 20px;
+            color: #007bff;
         }
 
         footer {
@@ -136,72 +155,73 @@
                 <li>Mengajarkan penggunaan stop loss dan take profit.</li>
                 <li>Membantu risk and reward ratio dalam trading.</li>
             </ul>
-            <!-- Layanan -->
-    <div class="content" id="services">
-        <h2>Layanan Kami</h2>
-   
-            <h2>Kalkulator Risiko Forex</h2>
-            <form id="riskCalculatorForm">
-                <label for="transactionType">Jenis Transaksi:</label>
-                <select id="transactionType" name="transactionType">
+        </section>
+
+        <section id="services">
+            <h2>Layanan Kami</h2>
+
+            <h2>Kalkulator Risiko Forex (USD)</h2>
+            <form id="usdRiskCalculatorForm">
+                <label for="usdTransactionType">Jenis Transaksi:</label>
+                <select id="usdTransactionType" name="usdTransactionType">
                     <option value="buy">Buy</option>
                     <option value="sell">Sell</option>
                 </select>
-                
-                <label for="currencyPair">Pair Mata Uang:</label>
-                <input type="text" id="currencyPair" name="currencyPair" placeholder="USDJPY">
 
-                <label for="initialCapital">Modal Awal (USD):</label>
-                <input type="number" id="initialCapital" name="initialCapital">
+                <label for="usdCurrencyPair">Pair Mata Uang:</label>
+                <input type="text" id="usdCurrencyPair" name="usdCurrencyPair" value="XAUUSD">
 
-                <label for="entryPrice">Harga Entry:</label>
-                <input type="number" id="entryPrice" name="entryPrice">
+                <label for="usdInitialCapital">Modal Awal (USD):</label>
+                <input type="text" id="usdInitialCapital" name="usdInitialCapital" required oninput="formatUSD(this)">
 
-                <label for="stopLossPrice">Harga Stop Loss:</label>
-                <input type="number" id="stopLossPrice" name="stopLossPrice">
+                <label for="usdEntryPrice">Harga Entry:</label>
+                <input type="number" id="usdEntryPrice" name="usdEntryPrice" required>
 
-                <label for="takeProfitPrice">Harga Take Profit:</label>
-                <input type="number" id="takeProfitPrice" name="takeProfitPrice">
+                <label for="usdStopLossPrice">Harga Stop Loss:</label>
+                <input type="number" id="usdStopLossPrice" name="usdStopLossPrice" required>
 
-                <label for="riskPercentage">Persentase Risiko (%):</label>
-                <input type="number" id="riskPercentage" name="riskPercentage">
+                <label for="usdTakeProfitPrice">Harga Take Profit:</label>
+                <input type="number" id="usdTakeProfitPrice" name="usdTakeProfitPrice">
 
-                <button type="button" onclick="calculateRisk()">Hitung</button>
+                <label for="usdRiskPercentage">Persentase Risiko (%):</label>
+                <input type="number" id="usdRiskPercentage" name="usdRiskPercentage" step="0.01" required>
+
+                <button type="button" onclick="calculateUSDRisk()">Hitung</button>
             </form>
-            <div class="results" id="riskResults">
-                <p>Ukuran Lot yang Disarankan: <span id="lotSize">N/A</span></p>
-            </div>
-        </div>
 
-        <div class="section">
-            <h2>Backtest Metode</h2>
-            <form id="backtestForm">
-                <label for="backtestPair">Pair Forex atau Koin Crypto:</label>
-                <input type="text" id="backtestPair" name="backtestPair" placeholder="XAUUSD">
+            <h2 class="results">Ukuran Lot yang Disarankan (USD): <span id="usdRecommendedLotSize">0.00</span></h2>
 
-                <label for="backtestEntryPrice">Harga Entry:</label>
-                <input type="number" id="backtestEntryPrice" name="backtestEntryPrice">
+            <h2>Kalkulator Risiko Forex (USC)</h2>
+            <form id="uscRiskCalculatorForm">
+                <label for="uscTransactionType">Jenis Transaksi:</label>
+                <select id="uscTransactionType" name="uscTransactionType">
+                    <option value="buy">Buy</option>
+                    <option value="sell">Sell</option>
+                </select>
 
-                <label for="backtestStopLossPrice">Harga Stop Loss:</label>
-                <input type="number" id="backtestStopLossPrice" name="backtestStopLossPrice">
+                <label for="uscCurrencyPair">Pair Mata Uang:</label>
+                <input type="text" id="uscCurrencyPair" name="uscCurrencyPair" value="XAUUSD">
 
-                <label for="backtestTakeProfitPrice">Harga Take Profit:</label>
-                <input type="number" id="backtestTakeProfitPrice" name="backtestTake
-            <label for="backtestEntryDate">Tanggal Entry (YYYY-MM-DD):</label>
-            <input type="date" id="backtestEntryDate" name="backtestEntryDate">
+                <label for="uscInitialCapital">Modal Awal (USC):</label>
+                <input type="number" id="uscInitialCapital" name="uscInitialCapital" required>
 
-            <button type="button" onclick="performBacktest()">Backtest</button>
-        </form>
-        <div class="results" id="backtestResults">
-            <p>Pair: <span id="backtestPairResult">N/A</span></p>
-            <p>Harga Entry: <span id="backtestEntryPriceResult">N/A</span></p>
-            <p>Harga Stop Loss: <span id="backtestStopLossPriceResult">N/A</span></p>
-            <p>Harga Take Profit: <span id="backtestTakeProfitPriceResult">N/A</span></p>
-            <p>Tanggal Entry: <span id="backtestEntryDateResult">N/A</span></p>
-            <p>Risk/Reward Ratio: <span id="backtestRiskRewardRatio">N/A</span></p>
-        </div>
-    </div>
-</div>
+                <label for="uscEntryPrice">Harga Entry:</label>
+                <input type="number" id="uscEntryPrice" name="uscEntryPrice" required>
+
+                <label for="uscStopLossPrice">Harga Stop Loss:</label>
+                <input type="number" id="uscStopLossPrice" name="uscStopLossPrice" required>
+
+                <label for="uscTakeProfitPrice">Harga Take Profit:</label>
+                <input type="number" id="uscTakeProfitPrice" name="uscTakeProfitPrice">
+
+                <label for="uscRiskPercentage">Persentase Risiko (%):</label>
+                <input type="number" id="uscRiskPercentage" name="uscRiskPercentage" step="0.01" required>
+
+                <button type="button" onclick="calculateUSCRisk()">Hitung</button>
+            </form>
+
+            <h2 class="results">Ukuran Lot yang Disarankan (USC): <span id="uscRecommendedLotSize">0.00</span></h2>
+        </section>
 
         <section id="contact">
             <h2>Kontak</h2>
@@ -214,44 +234,12 @@
     </footer>
 
     <script>
-        function calculateRisk() {
-        // Get form values
-        const transactionType = document.getElementById('transactionType').value;
-        const currencyPair = document.getElementById('currencyPair').value;
-        const initialCapital = parseFloat(document.getElementById('initialCapital').value);
-        const entryPrice = parseFloat(document.getElementById('entryPrice').value);
-        const stopLossPrice = parseFloat(document.getElementById('stopLossPrice').value);
-        const takeProfitPrice = parseFloat(document.getElementById('takeProfitPrice').value);
-        const riskPercentage = parseFloat(document.getElementById('riskPercentage').value);
-
-        // Risk calculation logic
-        const riskAmount = initialCapital * (riskPercentage / 100);
-        const stopLossDistance = Math.abs(entryPrice - stopLossPrice);
-        const lotSize = riskAmount / stopLossDistance;
-
-        // Display result
-        document.getElementById('lotSize').textContent = lotSize.toFixed(2);
-    }
-
-    function performBacktest() {
-        // Get form values
-        const pair = document.getElementById('backtestPair').value;
-        const entryPrice = parseFloat(document.getElementById('backtestEntryPrice').value);
-        const stopLossPrice = parseFloat(document.getElementById('backtestStopLossPrice').value);
-        const takeProfitPrice = parseFloat(document.getElementById('backtestTakeProfitPrice').value);
-        const entryDate = document.getElementById('backtestEntryDate').value;
-
-        // Risk/Reward ratio calculation
-        const risk = Math.abs(entryPrice - stopLossPrice);
-        const reward = Math.abs(takeProfitPrice - entryPrice);
-        const riskRewardRatio = reward / risk;
-
-        // Display results
-        document.getElementById('backtestPairResult').textContent = pair;
-        document.getElementById('backtestEntryPriceResult').textContent = entryPrice;
-        document.getElementById('backtestStopLossPriceResult').textContent = stopLossPrice;
-        document.getElementById('backtestTakeProfitPriceResult').textContent = takeProfitPrice;
-        document.getElementById('backtestEntryDateResult').textContent = entryDate;
-        document.getElementById('backtestRiskRewardRatio').textContent = riskRewardRatio.toFixed(2);
-    }
-</script>
+        function formatUSD(input) {
+            let value = input.value.replace(/,/g, '');
+            if (!isNaN(value)) {
+                input.value = parseFloat(value).toLocaleString('en-US', {
+                    minimumFractionDigits: 0,
+                    maximumFractionDigits: 0
+                });
+            } else {
+                input.value = input.value.substring(0, input.value
