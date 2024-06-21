@@ -160,68 +160,66 @@
         <section id="services">
             <h2>Layanan Kami</h2>
 
-            <h2>Kalkulator Risiko Forex (USD)</h2>
-            <form id="usdRiskCalculatorForm">
-                <label for="usdTransactionType">Jenis Transaksi:</label>
-                <select id="usdTransactionType" name="usdTransactionType">
-                    <option value="buy">Buy</option>
-                    <option value="sell">Sell</option>
-                </select>
+    <h1>Forex Risk Calculator (USD)</h1>
+    <form id="usdRiskCalculatorForm">
+        <label for="usdTransactionType">Jenis Transaksi:</label>
+        <select id="usdTransactionType" name="usdTransactionType">
+            <option value="buy">Buy</option>
+            <option value="sell">Sell</option>
+        </select>
 
-                <label for="usdCurrencyPair">Pair Mata Uang:</label>
-                <input type="text" id="usdCurrencyPair" name="usdCurrencyPair" value="XAUUSD">
+        <label for="usdCurrencyPair">Pair Mata Uang:</label>
+        <input type="text" id="usdCurrencyPair" name="usdCurrencyPair" value="XAUUSD">
 
-                <label for="usdInitialCapital">Modal Awal (USD):</label>
-                <input type="text" id="usdInitialCapital" name="usdInitialCapital" required oninput="formatUSD(this)">
+        <label for="usdInitialCapital">Modal Awal (USD):</label>
+        <input type="text" id="usdInitialCapital" name="usdInitialCapital" required oninput="formatUSD(this)">
 
-                <label for="usdEntryPrice">Harga Entry:</label>
-                <input type="number" id="usdEntryPrice" name="usdEntryPrice" required>
+        <label for="usdEntryPrice">Harga Entry:</label>
+        <input type="number" id="usdEntryPrice" name="usdEntryPrice" required>
 
-                <label for="usdStopLossPrice">Harga Stop Loss:</label>
-                <input type="number" id="usdStopLossPrice" name="usdStopLossPrice" required>
+        <label for="usdStopLossPrice">Harga Stop Loss:</label>
+        <input type="number" id="usdStopLossPrice" name="usdStopLossPrice" required>
 
-                <label for="usdTakeProfitPrice">Harga Take Profit:</label>
-                <input type="number" id="usdTakeProfitPrice" name="usdTakeProfitPrice">
+        <label for="usdTakeProfitPrice">Harga Take Profit:</label>
+        <input type="number" id="usdTakeProfitPrice" name="usdTakeProfitPrice">
 
-                <label for="usdRiskPercentage">Persentase Risiko (%):</label>
-                <input type="number" id="usdRiskPercentage" name="usdRiskPercentage" step="0.01" required>
+        <label for="usdRiskPercentage">Persentase Risiko (%):</label>
+        <input type="number" id="usdRiskPercentage" name="usdRiskPercentage" step="0.01" required>
 
-                <button type="button" onclick="calculateUSDRisk()">Hitung</button>
-            </form>
+        <button type="button" onclick="calculateUSDRisk()">Hitung</button>
+    </form>
 
-            <h2 class="results">Ukuran Lot yang Disarankan (USD): <span id="usdRecommendedLotSize">0.00</span></h2>
+    <h2 class="result">Ukuran Lot yang Disarankan (USD): <span id="usdRecommendedLotSize">0.00</span></h2>
 
-            <h2>Kalkulator Risiko Forex (USC)</h2>
-            <form id="uscRiskCalculatorForm">
-                <label for="uscTransactionType">Jenis Transaksi:</label>
-                <select id="uscTransactionType" name="uscTransactionType">
-                    <option value="buy">Buy</option>
-                    <option value="sell">Sell</option>
-                </select>
+    <h1>Forex Risk Calculator (USC)</h1>
+    <form id="uscRiskCalculatorForm">
+        <label for="uscTransactionType">Jenis Transaksi:</label>
+        <select id="uscTransactionType" name="uscTransactionType">
+            <option value="buy">Buy</option>
+            <option value="sell">Sell</        </select>
 
-                <label for="uscCurrencyPair">Pair Mata Uang:</label>
-                <input type="text" id="uscCurrencyPair" name="uscCurrencyPair" value="XAUUSD">
+        <label for="uscCurrencyPair">Pair Mata Uang:</label>
+        <input type="text" id="uscCurrencyPair" name="uscCurrencyPair" value="XAUUSD">
 
-                <label for="uscInitialCapital">Modal Awal (USC):</label>
-                <input type="number" id="uscInitialCapital" name="uscInitialCapital" required>
+        <label for="uscInitialCapital">Modal Awal (USC):</label>
+        <input type="number" id="uscInitialCapital" name="uscInitialCapital" required>
 
-                <label for="uscEntryPrice">Harga Entry:</label>
-                <input type="number" id="uscEntryPrice" name="uscEntryPrice" required>
+        <label for="uscEntryPrice">Harga Entry:</label>
+        <input type="number" id="uscEntryPrice" name="uscEntryPrice" required>
 
-                <label for="uscStopLossPrice">Harga Stop Loss:</label>
-                <input type="number" id="uscStopLossPrice" name="uscStopLossPrice" required>
+        <label for="uscStopLossPrice">Harga Stop Loss:</label>
+        <input type="number" id="uscStopLossPrice" name="uscStopLossPrice" required>
 
-                <label for="uscTakeProfitPrice">Harga Take Profit:</label>
-                <input type="number" id="uscTakeProfitPrice" name="uscTakeProfitPrice">
+        <label for="uscTakeProfitPrice">Harga Take Profit:</label>
+        <input type="number" id="uscTakeProfitPrice" name="uscTakeProfitPrice">
 
-                <label for="uscRiskPercentage">Persentase Risiko (%):</label>
-                <input type="number" id="uscRiskPercentage" name="uscRiskPercentage" step="0.01" required>
+        <label for="uscRiskPercentage">Persentase Risiko (%):</label>
+        <input type="number" id="uscRiskPercentage" name="uscRiskPercentage" step="0.01" required>
 
-                <button type="button" onclick="calculateUSCRisk()">Hitung</button>
-            </form>
+        <button type="button" onclick="calculateUSCRisk()">Hitung</button>
+    </form>
 
-            <h2 class="results">Ukuran Lot yang Disarankan (USC): <span id="uscRecommendedLotSize">0.00</span></h2>
-        </section>
+    <h2 class="result">Ukuran Lot yang Disarankan (USC): <span id="uscRecommendedLotSize">0.00</span></h2>
 
         <section id="contact">
             <h2>Kontak</h2>
@@ -242,4 +240,37 @@
                     maximumFractionDigits: 0
                 });
             } else {
-                input.value = input.value.substring(0, input.value
+                input.value = input.value.substring(0, input.value.length - 1);
+            }
+        }
+
+        function calculateUSDRisk() {
+            const initialCapital = parseFloat(document.getElementById('usdInitialCapital').value.replace(/,/g, ''));
+            const entryPrice = parseFloat(document.getElementById('usdEntryPrice').value);
+            const stopLossPrice = parseFloat(document.getElementById('usdStopLossPrice').value);
+            const riskPercentage = parseFloat(document.getElementById('usdRiskPercentage').value) / 100;
+
+            const riskAmount = initialCapital * riskPercentage;
+            const pipRisk = Math.abs(entryPrice - stopLossPrice);
+
+            const recommendedLotSize = riskAmount / pipRisk;
+
+            document.getElementById('usdRecommendedLotSize').textContent = recommendedLotSize.toFixed(2);
+        }
+
+        function calculateUSCRisk() {
+            const initialCapital = parseFloat(document.getElementById('uscInitialCapital').value) / 100; // Convert USC to USD
+            const entryPrice = parseFloat(document.getElementById('uscEntryPrice').value);
+            const stopLossPrice = parseFloat(document.getElementById('uscStopLossPrice').value);
+            const riskPercentage = parseFloat(document.getElementById('uscRiskPercentage').value) / 100;
+
+            const riskAmount = initialCapital * riskPercentage;
+            const pipRisk = Math.abs(entryPrice - stopLossPrice);
+
+            const recommendedLotSize = riskAmount / pipRisk;
+
+            document.getElementById('uscRecommendedLotSize').textContent = recommendedLotSize.toFixed(2);
+        }
+    </script>
+</body>
+</html>
